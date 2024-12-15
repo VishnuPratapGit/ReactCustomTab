@@ -25,7 +25,7 @@ const MainGoogleSection = () => {
 
       <form
         onSubmit={searchQuery}
-        className="relative border-2 border-transparent rounded-3xl flex w-11/12 lg:w-2/4 sm:w-3/4"
+        className="relative border-2 border-transparent mb-20 rounded-3xl flex w-11/12 lg:w-2/4 sm:w-3/4"
       >
         <Input
           value={search}
