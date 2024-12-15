@@ -4,7 +4,7 @@ import { useLinksContext } from "../context/LinksContext";
 import { Edit, Trash2 } from "lucide-react";
 
 const Navbar = ({ setEditLinkID }) => {
-  const { links, deleteLink, updateLink } = useLinksContext();
+  const { links, deleteLink } = useLinksContext();
   const [showMenu, setShowMenu] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
   const [linkItemID, setLinkItemID] = useState();
