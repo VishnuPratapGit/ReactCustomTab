@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <LinksContextProvider>
-      <div className="flex flex-col justify-between items-center h-full overflow-hidden">
+      <div className="flex flex-col h-full justify-between items-center overflow-hidden">
         <Navbar setEditLinkID={setEditLinkID} />
         <MainGoogleSection />
         <div className="relative flex self-start items-center w-full">
