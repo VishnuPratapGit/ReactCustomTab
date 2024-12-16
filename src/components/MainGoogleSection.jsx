@@ -38,7 +38,7 @@ const MainGoogleSection = () => {
           type="submit"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          className="grid place-items-center border-2 border-l-0 border-neutral-600 dark:border-none h-full rounded-l-none dark:bg-neutral-800 rounded-full sm:px-4 px-8 right-0 focus:outline-none"
+          className="grid place-items-center border-2 border-l-0 border-neutral-600 dark:border-none h-full rounded-l-none dark:bg-neutral-800 rounded-full sm:pr-4 pr-6 pl-0 right-0 focus:outline-none"
         >
           <Search
             size={20}
