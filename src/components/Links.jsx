@@ -12,12 +12,12 @@ const Links = ({ data, contextMenu }) => {
       className="dark:text-white text-black dark:hover:text-white border-2 border-transparent flex justify-center items-center w-max gap-2 mr-3 flex-shrink-0 hover:border-neutral-600 p-1 px-2 rounded-lg transition-all duration-500"
     >
       {data.photoUrl.length === 0 ? (
-        <img className="h-6" src={getFaviconUrl} />
+        <img className="h-8 sm:h-6" src={getFaviconUrl} />
       ) : (
-        <img className="h-6" src={data.photoUrl} />
+        <img className="h-8 sm:h-6" src={data.photoUrl} />
       )}
 
-      <div className="font-quicksand text-sm font-semibold">
+      <div className="font-quicksand text-lg sm:text-sm font-semibold">
         {data.linkName}
       </div>
     </a>

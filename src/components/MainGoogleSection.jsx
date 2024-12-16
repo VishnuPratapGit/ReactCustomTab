@@ -25,12 +25,12 @@ const MainGoogleSection = () => {
 
       <form
         onSubmit={searchQuery}
-        className="relative border-2 border-transparent h-11 mb-8 rounded-3xl flex w-11/12 lg:w-2/4 sm:w-3/4"
+        className="relative border-2 border-transparent h-20 sm:h-11 mb-8 bg-black rounded-full sm:rounded-3xl flex w-11/12 lg:w-2/4 sm:w-3/4"
       >
         <Input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="rounded-3xl rounded-r-none w-full h-full px-5 dark:border-none"
+          className="rounded-full sm:rounded-3xl rounded-r-none sm:rounded-r-none w-full h-full pl-8 sm:pl-5 dark:border-none"
           placeholder="Search..."
         />
 
@@ -38,7 +38,7 @@ const MainGoogleSection = () => {
           type="submit"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          className="grid place-items-center border-2 border-l-0 border-neutral-600 dark:border-none h-full rounded-l-none dark:bg-neutral-800 rounded-full px-2 pr-4 right-0 focus:outline-none"
+          className="grid place-items-center border-2 border-l-0 border-neutral-600 dark:border-none h-full rounded-l-none dark:bg-neutral-800 rounded-full sm:px-4 px-5 right-0 focus:outline-none"
         >
           <Search
             size={20}
