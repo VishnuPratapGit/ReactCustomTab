@@ -34,7 +34,7 @@ const Navbar = ({ setEditLinkID }) => {
   }, []);
 
   return (
-    <div className="flex w-full p-4 overflow-hidden cursor-pointer gap-2">
+    <div className="flex scrollbar-hidden justify-between overflow-x-auto w-full cursor-pointer gap-2">
       {links.map((data) => (
         <Links contextMenu={contextMenu} key={data.id} data={data} />
       ))}

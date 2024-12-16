@@ -18,19 +18,19 @@ const MainGoogleSection = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center ">
+    <div className="flex flex-col justify-center items-center w-full">
       <div className="text-4xl sm:text-6xl md:text-8xl mb-5 cursor-pointer select-none font-ibmPlexMono font-extralight">
         Google
       </div>
 
       <form
         onSubmit={searchQuery}
-        className="relative border-2 border-transparent mb-20 rounded-3xl flex w-11/12 lg:w-2/4 sm:w-3/4"
+        className="relative border-2 border-transparent h-11 mb-8 rounded-3xl flex w-11/12 lg:w-2/4 sm:w-3/4"
       >
         <Input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="rounded-3xl rounded-r-none w-full px-5 h-11 dark:border-none"
+          className="rounded-3xl rounded-r-none w-full h-full px-5 dark:border-none"
           placeholder="Search..."
         />
 

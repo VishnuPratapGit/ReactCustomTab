@@ -1,8 +1,17 @@
+#root {
+  height: 100vh;
+  padding: 1.5rem;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
 }
 
 .lineheight-none {

@@ -14,10 +14,10 @@ const App = () => {
 
   return (
     <LinksContextProvider>
-      <div className="flex flex-col justify-between h-svh overflow-hidden">
+      <div className="flex flex-col justify-between items-center h-full overflow-hidden">
         <Navbar setEditLinkID={setEditLinkID} />
         <MainGoogleSection />
-        <div className="relative flex items-center bottom-5">
+        <div className="relative flex self-start items-center w-full">
           <LinkMakeInputs
             visible={visible}
             setVisible={setVisible}
