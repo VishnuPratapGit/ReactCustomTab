@@ -19,7 +19,7 @@ const MainGoogleSection = () => {
 
   return (
     <div className="flex flex-col justify-center items-center w-full">
-      <div className="text-4xl sm:text-6xl md:text-8xl mb-5 cursor-pointer select-none font-ibmPlexMono font-extralight">
+      <div className="text-6xl md:text-8xl mb-5 cursor-pointer select-none font-ibmPlexMono font-extralight">
         Google
       </div>
 
