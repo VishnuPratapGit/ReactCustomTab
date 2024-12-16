@@ -68,21 +68,21 @@ const LinkMakeInputs = ({ visible, setVisible, editLinkID, setEditLinkID }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className={`flex flex-col gap-1 p-2 rounded-2xl border-2 opacity-0 origin-bottom-left absolute bottom-16 left-5 dark:bg-neutral-950 transition-all duration-500 border-neutral-700 hover:border-neutral-500 w-max ${
+      className={`flex flex-col gap-1 p-2 rounded-2xl border-2 opacity-0 origin-bottom-left absolute bottom-16 left-5 dark:bg-neutral-950 transition-all duration-500 border-neutral-700 hover:border-neutral-500 w-4/5 sm:w-1/5 ${
         visible ? "opacity-100 scale-100" : "opacity-0 scale-0"
       }`}
     >
       <Input
-        className="rounded-xl h-9 hover:border-neutral-700"
+        className="rounded-xl h-9 text-sm hover:border-neutral-700"
         type="text"
-        placeholder="name"
+        placeholder="link name"
         required
         value={linkName || ""}
         onChange={(e) => setLinkName(e.target.value)}
       />
 
       <Input
-        className="rounded-xl h-9 hover:border-neutral-700"
+        className="rounded-xl h-9 text-sm hover:border-neutral-700"
         type="url"
         placeholder="link url"
         required
@@ -91,16 +91,16 @@ const LinkMakeInputs = ({ visible, setVisible, editLinkID, setEditLinkID }) => {
       />
 
       <Input
-        className="rounded-xl h-9 hover:border-neutral-700"
+        className="rounded-xl h-9 text-sm hover:border-neutral-700"
         type="url"
-        placeholder="image url"
+        placeholder="icon url (optional)"
         value={photoUrl || ""}
         onChange={(e) => setPhotoUrl(e.target.value)}
       />
 
       <div className="flex gap-1 mt-1">
         <button
-          className="font-montserrat p-2 w-full bg-blue-500 hover:bg-blue-600 border-none text-sm font-semibold"
+          className="font-montserrat p-2 w-full bg-emerald-600 hover:bg-emerald-700 border-none text-sm font-semibold"
           type="submit"
         >
           {isUpdate ? "Update Link" : "Add Link"}
@@ -108,7 +108,7 @@ const LinkMakeInputs = ({ visible, setVisible, editLinkID, setEditLinkID }) => {
 
         <button
           onClick={cancel}
-          className="font-montserrat p-2 bg-rose-500 hover:bg-rose-600 border-none text-sm font-semibold"
+          className="font-montserrat p-2 bg-rose-600 hover:bg-rose-700 border-none text-sm font-semibold"
           type="reset"
         >
           Cancel
