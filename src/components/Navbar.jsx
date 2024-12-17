@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import Links from "./Links";
 import { useLinksContext } from "../context/LinksContext";
 import { Edit, Trash2 } from "lucide-react";
+import { DropArea } from "./index";
 
-const Navbar = ({ setEditLinkID }) => {
+const Navbar = ({ setEditLinkID, setDraggableId, draggableId }) => {
   const { links, deleteLink } = useLinksContext();
   const [showMenu, setShowMenu] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
@@ -35,9 +36,18 @@ const Navbar = ({ setEditLinkID }) => {
 
   return (
     <div className="flex scrollbar-hidden overflow-x-auto w-full cursor-pointer gap-2">
-      {links.map((data) => (
-        <Links contextMenu={contextMenu} key={data.id} data={data} />
+      {links.map((data, index) => (
+        <div className="flex items-center" key={index}>
+          <DropArea draggableId={draggableId} position={index} />
+          <Links
+            contextMenu={contextMenu}
+            key={data.id}
+            data={data}
+            setDraggableId={setDraggableId}
+          />
+        </div>
       ))}
+      <DropArea draggableId={draggableId} position={links.length} />
 
       {showMenu && (
         <div

@@ -11,11 +11,16 @@ import "./App.css";
 const App = () => {
   const [visible, setVisible] = useState(false);
   const [editLinkID, setEditLinkID] = useState(null);
+  const [draggableId, setDraggableId] = useState(null);
 
   return (
     <LinksContextProvider>
       <div className="flex flex-col h-full justify-between items-center overflow-hidden">
-        <Navbar setEditLinkID={setEditLinkID} />
+        <Navbar
+          setEditLinkID={setEditLinkID}
+          setDraggableId={setDraggableId}
+          draggableId={draggableId}
+        />
         <MainGoogleSection />
         <div className="relative flex self-start items-center w-full">
           <LinkMakeInputs

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import Input from "./Input";
 import { useLinksContext } from "../context/LinksContext";
 
@@ -25,10 +24,8 @@ const LinkMakeInputs = ({ visible, setVisible, editLinkID, setEditLinkID }) => {
       setIsUpdate(false);
       setEditLinkID(null);
     } else {
-      const linkID = uuidv4();
-
       const linkInputData = {
-        id: linkID,
+        id: Date.now(),
         linkName,
         linkUrl,
         photoUrl,

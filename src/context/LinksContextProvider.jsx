@@ -18,6 +18,22 @@ const LinksContextProvider = (props) => {
     setLinksData((prev) => prev.filter((prevLink) => prevLink.id !== id));
   };
 
+  const replaceLink = (id, position) => {
+    const replacingItemIndex = links.findIndex((item) => item.id === id);
+    const copiedLinks = [...links];
+
+    if (replacingItemIndex === -1 || position === replacingItemIndex) return;
+
+    const [element] = copiedLinks.splice(replacingItemIndex, 1);
+    copiedLinks.splice(
+      position > replacingItemIndex ? position - 1 : position,
+      0,
+      element
+    );
+
+    setLinksData(copiedLinks);
+  };
+
   useEffect(() => {
     const savedLinksFromLS = JSON.parse(localStorage.getItem("LinkData"));
 
@@ -31,7 +47,9 @@ const LinksContextProvider = (props) => {
   }, [links]);
 
   return (
-    <LinksContext.Provider value={{ links, addLink, updateLink, deleteLink }}>
+    <LinksContext.Provider
+      value={{ links, addLink, updateLink, deleteLink, replaceLink }}
+    >
       {props.children}
     </LinksContext.Provider>
   );
