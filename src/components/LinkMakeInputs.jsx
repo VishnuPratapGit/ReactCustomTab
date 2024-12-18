@@ -65,7 +65,7 @@ const LinkMakeInputs = ({ visible, setVisible, editLinkID, setEditLinkID }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className={`flex flex-col gap-1 p-2 rounded-2xl border-2 opacity-0 origin-bottom-left absolute bottom-16 dark:bg-neutral-950 transition-all duration-500 border-neutral-700 hover:border-neutral-500 w-4/5 sm:w-1/5 ${
+      className={`flex flex-col gap-1 p-2 rounded-2xl border-2 opacity-0 origin-bottom-left absolute bottom-16 dark:bg-neutral-950 bg-white transition-all duration-500 border-neutral-700 hover:border-neutral-500 w-4/5 sm:w-1/5 ${
         visible ? "opacity-100 scale-100" : "opacity-0 scale-0"
       }`}
     >
