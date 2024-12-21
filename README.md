@@ -3,7 +3,7 @@
 Say Goodbye to distracting homepage by using this custom homepage enabling users to create, manage, and organize tabs with drag-and-drop functionality. 
 
 ---
-# [Live Demo](https://homepagevps.netlify.app/) 🌐✨
+## [Live Demo](https://homepagevps.netlify.app/) 🌐
 ---
 
 ## Features
