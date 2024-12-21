@@ -35,9 +35,9 @@ const Navbar = ({ setEditLinkID, setDraggableId, draggableId }) => {
   }, []);
 
   return (
-    <div className="flex scrollbar-hidden overflow-x-auto w-full cursor-pointer gap-2">
+    <div className="flex rounded-sm items-center scrollbar-hidden overflow-x-auto w-full cursor-pointer">
       {links.map((data, index) => (
-        <div className="flex items-center" key={index}>
+        <>
           <DropArea draggableId={draggableId} position={index} />
           <Links
             contextMenu={contextMenu}
@@ -45,7 +45,7 @@ const Navbar = ({ setEditLinkID, setDraggableId, draggableId }) => {
             data={data}
             setDraggableId={setDraggableId}
           />
-        </div>
+        </>
       ))}
       <DropArea draggableId={draggableId} position={links.length} />
 
