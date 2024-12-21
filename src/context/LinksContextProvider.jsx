@@ -22,7 +22,7 @@ const LinksContextProvider = (props) => {
     const replacingItemIndex = links.findIndex((item) => item.id === id);
     const copiedLinks = [...links];
 
-    if (replacingItemIndex === -1 || position === replacingItemIndex) return;
+    if (replacingItemIndex === -1 || position === replacingItemIndex || position === replacingItemIndex + 1) return;
 
     const [element] = copiedLinks.splice(replacingItemIndex, 1);
     copiedLinks.splice(
