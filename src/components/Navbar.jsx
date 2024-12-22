@@ -43,11 +43,10 @@ const Navbar = ({ setEditLinkID, setDraggableId, draggableId }) => {
         <div className="flex items-center transition-all" key={index}>
           <Links
             contextMenu={contextMenu}
-            key={data.id}
             data={data}
             setDraggableId={setDraggableId}
           />
-          <DropArea draggableId={draggableId} position={index} setDraggableId={setDraggableId} key={index} />
+          <DropArea draggableId={draggableId} position={index} setDraggableId={setDraggableId} />
         </div>
       ))}
 

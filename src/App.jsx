@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <LinksContextProvider>
-      <div className="flex flex-col h-full justify-between items-center overflow-hidden">
+      <div className="flex flex-col h-full justify-between items-center overflow-visible">
         <Navbar
           setEditLinkID={setEditLinkID}
           setDraggableId={setDraggableId}

@@ -1,9 +1,10 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useId } from "react";
 
 const Input = forwardRef(
   ({ type = "text", placeholder, className, ...props }, ref) => {
     return (
       <input
+        id={useId()}
         ref={ref}
         placeholder={placeholder}
         type={type}

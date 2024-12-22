@@ -6,3 +6,32 @@
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
 }
+
+/* CSS for rainbow background */
+.rainbow-bg {
+  background: linear-gradient(
+    45deg,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+  background-size: 400% 400%;
+  animation: rainbowAnimation 15s ease infinite;
+}
+
+/* Animation to create a moving rainbow effect */
+@keyframes rainbowAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
