@@ -22,14 +22,11 @@ const LinksContextProvider = (props) => {
     const itemIndex = links.findIndex((item) => item.id === id);
     const copiedLinks = [...links];
 
-    if (position === itemIndex || position === itemIndex - 1) return;
+    if (position === itemIndex) return;
 
     const [element] = copiedLinks.splice(itemIndex, 1);
-    copiedLinks.splice(
-      position > itemIndex ? position : position + 1,
-      0,
-      element
-    );
+
+    copiedLinks.splice(position, 0, element);
 
     setLinksData(copiedLinks);
   };

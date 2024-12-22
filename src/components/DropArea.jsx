@@ -27,12 +27,12 @@ const DropArea = ({ draggableId, setDraggableId, position, ...others }) => {
       onDragLeave={() => setShowDrop(false)}
       onDrop={handleDrop}
       onDragOver={(e) => e.preventDefault()}
-      className={`${display ? "opacity-30" : ""} ${showDrop
+      className={`${display ? "opacity-50" : ""} ${showDrop
         ? "w-28 rounded-lg scale-100"
-        : "opacity-0 w-10 scale-90 border-transparent"
+        : "opacity-0 w-8 scale-90"
         } flex items-center justify-center font-serif origin-left flex-shrink-0 h-max p-1.5 px-2 transition-all duration-300 border-dashed border select-none text-neutral-300`}
     >
-      +
+      {position + 1}
     </div>
   );
 };
