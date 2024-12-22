@@ -22,7 +22,7 @@ const Links = ({ data, contextMenu, setDraggableId }) => {
       href={data.linkUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${dragged ? 'opacity-10 scale-90 dark:bg-white dark:text-black bg-black text-white' : ''} rounded-lg overflow-hidden`}
+      className={`${dragged ? 'opacity-10 scale-90' : ''} rounded-lg overflow-hidden`}
     >
       <div className="flex justify-center items-center w-max gap-2 flex-shrink-0 p-1 px-2 h-min transition-all duration-300 dark:hover:bg-white dark:hover:text-black hover:bg-black hover:text-white">
         {data.photoUrl.length === 0 ? (
