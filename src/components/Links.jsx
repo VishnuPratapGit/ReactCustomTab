@@ -1,27 +1,39 @@
-import React from "react";
+import { useState } from "react";
 
 const Links = ({ data, contextMenu, setDraggableId }) => {
-  const getFaviconUrl = `${data.linkUrl}/favicon.ico`;
+  const [dragged, setDragged] = useState(false);
+
+  const onDragStart = () => {
+    setDragged(true);
+    setDraggableId(data.id);
+  }
+
+  const onDragEnd = () => {
+    setDragged(false);
+    setDraggableId(null)
+  }
 
   return (
     <a
       draggable
-      onDragStart={() => setDraggableId(data.id)}
-      onDragEnd={() => setDraggableId(null)}
+      onDragStart={onDragStart}
+      onDragEnd={onDragEnd}
       onContextMenu={(e) => contextMenu(e, data.id)}
       href={data.linkUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="dark:text-white text-black dark:hover:text-white border-2 border-transparent flex justify-center items-center w-max gap-2 flex-shrink-0 hover:border-neutral-600 p-1 px-2 h-min rounded-lg transition-all duration-500"
+      className={`${dragged ? 'opacity-15' : ''} rounded-lg overflow-hidden`}
     >
-      {data.photoUrl.length === 0 ? (
-        <img className="h-8 sm:h-6" src={getFaviconUrl} />
-      ) : (
-        <img className="h-8 sm:h-6" src={data.photoUrl} />
-      )}
+      <div className="flex justify-center items-center w-max gap-2 flex-shrink-0 p-1 px-2 h-min transition-all duration-300 hover:scale-110">
+        {data.photoUrl.length === 0 ? (
+          <img className="h-8 sm:h-6" src={`${data.linkUrl}/favicon.ico`} />
+        ) : (
+          <img className="h-8 sm:h-6" src={data.photoUrl} />
+        )}
 
-      <div className="font-quicksand text-lg sm:text-sm font-semibold">
-        {data.linkName}
+        <div className="font-quicksand text-lg sm:text-sm font-semibold">
+          {data.linkName}
+        </div>
       </div>
     </a>
   );

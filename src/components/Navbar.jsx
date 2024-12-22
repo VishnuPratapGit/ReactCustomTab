@@ -36,18 +36,20 @@ const Navbar = ({ setEditLinkID, setDraggableId, draggableId }) => {
 
   return (
     <div className="flex rounded-sm items-center scrollbar-hidden overflow-x-auto w-full cursor-pointer">
+
+      {draggableId && <DropArea draggableId={draggableId} position={-1} setDraggableId={setDraggableId} />}
+
       {links.map((data, index) => (
-        <>
-          <DropArea draggableId={draggableId} position={index} />
+        <div className="flex items-center transition-all" key={index}>
           <Links
             contextMenu={contextMenu}
             key={data.id}
             data={data}
             setDraggableId={setDraggableId}
           />
-        </>
+          <DropArea draggableId={draggableId} position={index} setDraggableId={setDraggableId} key={index} />
+        </div>
       ))}
-      <DropArea draggableId={draggableId} position={links.length} />
 
       {showMenu && (
         <div
