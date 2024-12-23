@@ -62,6 +62,17 @@ const LinkMakeInputs = ({ visible, setVisible, editLinkID, setEditLinkID }) => {
     setIsUpdate(true);
   }, [editLinkID]);
 
+  useEffect(() => {
+    if (links.length === 0) {
+      setVisible(true);
+      setLinkName("YouTube");
+      setLinkUrl("https://youtube.com");
+      setPhotoUrl("https://img.icons8.com/?size=100&id=19318&format=png&color=000000");
+    } else {
+      cancel();
+    }
+  }, [links]);
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -71,7 +82,7 @@ const LinkMakeInputs = ({ visible, setVisible, editLinkID, setEditLinkID }) => {
       <Input
         className="rounded-xl h-9 text-sm hover:border-neutral-700"
         type="text"
-        placeholder="link name"
+        placeholder="link name (google)"
         required
         value={linkName || ""}
         onChange={(e) => setLinkName(e.target.value)}
@@ -80,7 +91,7 @@ const LinkMakeInputs = ({ visible, setVisible, editLinkID, setEditLinkID }) => {
       <Input
         className="rounded-xl h-9 text-sm hover:border-neutral-700"
         type="url"
-        placeholder="link url"
+        placeholder="url (https://google.com)"
         required
         value={linkUrl || ""}
         onChange={(e) => setLinkUrl(e.target.value)}
@@ -89,7 +100,7 @@ const LinkMakeInputs = ({ visible, setVisible, editLinkID, setEditLinkID }) => {
       <Input
         className="rounded-xl h-9 text-sm hover:border-neutral-700"
         type="url"
-        placeholder="icon url (optional)"
+        placeholder="image url for icon (optional)"
         value={photoUrl || ""}
         onChange={(e) => setPhotoUrl(e.target.value)}
       />
