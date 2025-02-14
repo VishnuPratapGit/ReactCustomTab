@@ -18,22 +18,20 @@ const MainGoogleSection = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center w-full">
-      <div className="text-6xl md:text-8xl mb-5 cursor-pointer select-none font-ibmPlexMono font-extralight">
-        Google
-      </div>
-
+    <div className="flex flex-col justify-center items-center w-full mb-8 mt-4">
       <form
         onSubmit={searchQuery}
-        className={`${selectInput ? "rainbow-bg" : "hover:bg-neutral-700"} relative border-2 border-transparent h-16 sm:h-11 mb-8 rounded-full sm:rounded-3xl flex w-full lg:w-2/4 sm:w-3/4 transition-colors duration-300`}
+        className={`${
+          selectInput ? "rainbow-bg" : "hover:bg-neutral-700"
+        } relative border-2 border-transparent h-16 sm:h-12 rounded-full flex w-full lg:w-2/4 sm:w-3/4 transition-colors duration-300`}
       >
         <Input
           onFocus={() => setSelectInput(true)}
           onBlur={() => setSelectInput(false)}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="rounded-full sm:rounded-3xl rounded-r-none sm:rounded-r-none w-full h-full pl-8 sm:pl-5 dark:border-none"
-          placeholder="Search..."
+          className="rounded-full rounded-r-none sm:rounded-r-none w-full h-full pl-8 sm:pl-5 dark:border-none pb-2"
+          placeholder="search..."
         />
 
         <button
