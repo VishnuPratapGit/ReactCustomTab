@@ -41,6 +41,10 @@ const MainGoogleSection = () => {
           <Search size={20} className="opacity-50 group-hover:opacity-100" />
         </button>
       </form>
+
+      <p className="mt-4 text-sm text-neutral-400/80 animate-pulse">
+        Press Enter to search • Ctrl+K to focus
+      </p>
     </div>
   );
 };
