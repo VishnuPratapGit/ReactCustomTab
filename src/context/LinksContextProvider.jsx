@@ -1,43 +1,44 @@
 import { useState, useEffect } from "react";
 import LinksContext from "./LinksContext";
 
-const LinksContextProvider = (props) => {
-  const [links, setLinksData] = useState([]);
-
-  const addLink = (link) => {
-    setLinksData((prev) => [...prev, link]);
+const LinksContextProvider = ({ children }) => {
+  const getStoredLinks = () => {
+    try {
+      return JSON.parse(localStorage.getItem("LinkData")) || [];
+    } catch {
+      return [];
+    }
   };
 
-  const updateLink = (id, link) => {
-    setLinksData((prev) =>
-      prev.map((prevLink) => (prevLink.id === id ? link : prevLink))
+  const [links, setLinks] = useState(getStoredLinks);
+
+  const addLink = (link) => {
+    setLinks((prev) => [...prev, link]);
+  };
+
+  const updateLink = (id, updatedLink) => {
+    setLinks((prev) =>
+      prev.map((link) => (link.id === id ? updatedLink : link))
     );
   };
 
   const deleteLink = (id) => {
-    setLinksData((prev) => prev.filter((prevLink) => prevLink.id !== id));
+    setLinks((prev) => prev.filter((link) => link.id !== id));
   };
 
-  const replaceLink = (id, position) => {
-    const itemIndex = links.findIndex((item) => item.id === id);
-    const copiedLinks = [...links];
+  const replaceLink = (id, newPosition) => {
+    setLinks((prev) => {
+      const index = prev.findIndex((item) => item.id === id);
+      if (index === -1 || newPosition < 0 || newPosition >= prev.length)
+        return prev;
 
-    if (position === itemIndex) return;
+      const updatedLinks = [...prev];
+      const [movedItem] = updatedLinks.splice(index, 1);
+      updatedLinks.splice(newPosition, 0, movedItem);
 
-    const [element] = copiedLinks.splice(itemIndex, 1);
-
-    copiedLinks.splice(position, 0, element);
-
-    setLinksData(copiedLinks);
+      return updatedLinks;
+    });
   };
-
-  useEffect(() => {
-    const savedLinksFromLS = JSON.parse(localStorage.getItem("LinkData"));
-
-    if (savedLinksFromLS && savedLinksFromLS.length > 0) {
-      setLinksData(savedLinksFromLS);
-    }
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("LinkData", JSON.stringify(links));
@@ -47,7 +48,7 @@ const LinksContextProvider = (props) => {
     <LinksContext.Provider
       value={{ links, addLink, updateLink, deleteLink, replaceLink }}
     >
-      {props.children}
+      {children}
     </LinksContext.Provider>
   );
 };
